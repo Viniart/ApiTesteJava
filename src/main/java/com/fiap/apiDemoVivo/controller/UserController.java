@@ -16,6 +16,16 @@ public class UserController {
     @Autowired
 	public UserRepository userRepository;
 
+    @GetMapping(value = "/user/teste")
+    @Operation(summary = "Testa o Funcionamento da Aplicação!")
+    @ApiResponse(
+            responseCode = "200",
+            description = "Sucesso"
+    )
+    public ResponseEntity<String> TesteAplicacao() {
+        return new ResponseEntity<>("Aplicação Funcionando com Sucesso!", HttpStatus.OK);
+    }
+
     @GetMapping(value = "/users/{id}/products")
     @Operation(summary = "Retorna os produtos contratados de um cliente")
     @ApiResponse(
